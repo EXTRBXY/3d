@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="./polyfills.js"></script>
+    <script type="module" src="./main.js"></script> -->
+    <script type="module" src="http://192.168.88.18:4200/main.js"></script>
+    <script src="http://192.168.88.18:4200/polyfills.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <title>3D Preview</title>
+    
+</head>
+<body>
+    <div class="controls">
+        <select id="models">
+            <option>МК-111.fbx</option>
+            <option>ПВ-001.fbx</option>
+            <option>ПВ-002.fbx</option>
+        </select>
+        <select id="materials">
+            <option value="gabro_color.png">Габро</option>
+            <option value="granite1_color.png">Змеевик</option>
+        </select>
+    </div>
+    <preview-element id="preview" modelname="МК-111.fbx"></preview-element>
+
+<script>
+    const modelsSelect = document.getElementById('models')
+    const materialSelect = document.getElementById('materials')
+    const previewEl = document.getElementById('preview')
+
+    modelsSelect.addEventListener('change',(e)=>{
+        previewEl.modelname = e.target.value
+    })
+
+    materialSelect.addEventListener('change',(e)=>{
+        previewEl.materialname = e.target.value
+    })
+</script>
+</body>
+</html>
