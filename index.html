@@ -16,21 +16,41 @@
 <body>
     <div class="controls">
         <select id="models">
-            <option>МК-111.fbx</option>
-            <option>ПВ-001.fbx</option>
-            <option>ПВ-002.fbx</option>
-            <option>ПВ-003.fbx</option>
+            <option>ПВ-233.glb</option>
+            <option>ПВ-001.glb</option>
+            <option>МК-111.glb</option>
         </select>
         <select id="materials">
-            <option value="gabro_color.png">Габро</option>
-            <option value="granite1_color.png">Змеевик</option>
+            <option value="Габбро-диабаз.jpg">Габро</option>
+            <option value="Змеевик.jpg">Змеевик</option>
+            <option value="Бетон.jpg">Бетон</option>
+            <option value="Винга.jpg">Винга</option>
+            <option value="Дымовский.jpg">Дымовский</option>
+            <option value="Капустинский.jpg">Капустинский</option>
+            <option value="Коелга мрамор.jpg">Коелка мрамор</option>
+            <option value="Лабрадорит.jpg">Лабрадорит</option>
+        </select>
+        <select id="stand">
+            <option value="true">С подставкой</option>
+            <option value="false">Без подставки</option>
+        </select>
+        <select id="stelaSize">
+            <option value="80х40х5">80х40х5 см</option>
+            <option value="100х50х5">100х50х5 см</option>
+            <option value="100х50х8">100х50х8 см</option>
+            <option value="100х50х10">100х50х10 см</option>
+            <option value="120х60х8">120х60х8 см</option>
+            <option value="120х60х10">120х60х10 см</option>
+            <option value="140х70х10">140х70х10 см</option>
         </select>
     </div>
-    <preview-element id="preview" modelname="МК-111.fbx"></preview-element>
+    <preview-element id="preview" modelname="ПВ-233.glb"></preview-element>
 
 <script>
     const modelsSelect = document.getElementById('models')
     const materialSelect = document.getElementById('materials')
+    const standSelect = document.getElementById('stand')
+    const stelaSizeSelect = document.getElementById('stelaSize')
     const previewEl = document.getElementById('preview')
 
     modelsSelect.addEventListener('change',(e)=>{
@@ -39,6 +59,14 @@
 
     materialSelect.addEventListener('change',(e)=>{
         previewEl.materialname = e.target.value
+    })
+
+    standSelect.addEventListener('change',(e)=>{
+        previewEl.hasStand = e.target.value === 'true'
+    })
+
+    stelaSizeSelect.addEventListener('change',(e)=>{
+        previewEl.stelaSize = e.target.value
     })
 </script>
 </body>
